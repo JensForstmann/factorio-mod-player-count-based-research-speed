@@ -1,7 +1,7 @@
 {
     "name": "player-count-based-research-speed",
     "author": "Yenz",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "title": "Player count based research speed",
     "factorio_version": "0.18",
     "dependencies": [
