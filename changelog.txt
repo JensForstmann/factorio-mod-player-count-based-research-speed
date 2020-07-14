@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2020-07-14
+  Optimisations:
+    - Changed internal method how researched multiplier for speed and productivity were determined.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2020-06-02
   Changes:

@@ -1,3 +1,22 @@
+-- returns the reasearched lab/research modifier for this force
+local function get_researched_modifier (force)
+    local speed = 0
+    local productivity = 0
+    for _, tech in pairs(force.technologies) do
+        if tech.upgrade and tech.researched and tech.valid and tech.enabled then
+            for _, mod in pairs(tech.effects) do
+                if mod.type == "laboratory-speed" then
+                    speed = speed + mod.modifier * (1 + tech.prototype.max_level - tech.prototype.level)
+                end
+                if mod.type == "laboratory-productivity" then
+                    productivity = productivity + mod.modifier * (1 + tech.prototype.max_level - tech.prototype.level)
+                end
+            end
+        end
+    end
+    return {speed = speed, productivity = productivity}
+end
+
 -- returns the player count based modifier defined in the settings
 local function get_player_count_based_settings(player_count)
     local speed = settings.global["for-" .. player_count .. "-player"]
@@ -25,19 +44,18 @@ local function apply(force)
     local previous_laboratory_speed_modifier = force.laboratory_speed_modifier
     local previous_laboratory_productivity_bonus = force.laboratory_productivity_bonus
 
-    -- reset effects to get the unmodified (default) value4s
-    force.reset_technology_effects()
-
-    local default_speed_modifer = force.laboratory_speed_modifier
-    local default_productivity_bonus = force.laboratory_productivity_bonus
+    -- get the researched values
+    local researched_modifier = get_researched_modifier(force)
+    local researched_speed_modifer = researched_modifier.speed
+    local researched_productivity_bonus = researched_modifier.productivity
 
     -- get multipliers from settings for the current amount of players
     local player_count = #force.connected_players
     local player_count_based_settings = get_player_count_based_settings(player_count)
 
     -- calculate new values
-    local new_laboratory_speed_modifier = (1 + default_speed_modifer) * player_count_based_settings.speed - 1
-    local new_laboratory_productivity_bonus = (1 + default_productivity_bonus) * player_count_based_settings.productivity - 1
+    local new_laboratory_speed_modifier = (1 + researched_speed_modifer) * player_count_based_settings.speed - 1
+    local new_laboratory_productivity_bonus = (1 + researched_productivity_bonus) * player_count_based_settings.productivity - 1
     if new_laboratory_productivity_bonus < 0 then new_laboratory_productivity_bonus = 0 end
 
     -- apply new values
@@ -62,7 +80,7 @@ local function apply(force)
     end
 end
 
--- refreshes all forces' laboratory_speed_modifier
+-- refreshes all forces
 local function apply_all()
     for _, force in pairs(game.forces) do
         apply(force)
