@@ -1,10 +1,11 @@
 {
     "name": "player-count-based-research-speed",
     "author": "Yenz",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "title": "Player count based research speed and productivity",
-    "factorio_version": "0.18",
+    "factorio_version": "1.1",
     "dependencies": [
-        "base >= 0.18.25"
-    ]
+        "base >= 1.1.0"
+    ],
+    "homepage": "https://github.com/JensForstmann/factorio-mod-player-count-based-research-speed"
 }
