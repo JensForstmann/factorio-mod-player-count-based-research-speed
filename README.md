@@ -12,7 +12,7 @@ The speed and productivity multiplier is configurable for 0, 1, 2, 3, 4 and 5+ p
 
 A setting of 1 will not change the speed, a setting of 0 will always disable the research. 
 
-The configured setting will applied multiplicative after the ingame bonus for research speed.
+The configured setting will be applied multiplicative after the ingame bonus for research speed.
 
 Example: If you have researched all [lab research speed](https://wiki.factorio.com/Lab_research_speed_(research)), the lab would normally display "3.5 (+250%)". If the current multiplier would be 0.5 your lab speed would become "1.75 (+75%)".
 
@@ -20,7 +20,7 @@ Example: If you have researched all [lab research speed](https://wiki.factorio.c
 
 In vanilla there is no productivity bonus research. Having a productivity multiplier of 1 will not change it. But if you want to grant a bonus when more players are online you can set it to 1.1 (resulting in +10% productivity).
 
-When using other mods which adds research to give you productivity bonus this multiplier will apply after the researched effect.
+When using other mods which adds research to give you productivity bonus this multiplier will be applied after the researched effect.
 
 Example: If you have +20% productivity but having a productivity multiplier of 0.9 this would result in +8% productivity. (1.2 * 0.9 = 1.08)
 
