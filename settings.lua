@@ -10,7 +10,7 @@ data:extend({
         name = "speed-for-0-player",
         type = "double-setting",
         setting_type = "runtime-global",
-        default_value = 0,
+        default_value = 1,
         minimum_value = 0,
         order = "1-0"
     },
@@ -18,7 +18,7 @@ data:extend({
         name = "speed-for-1-player",
         type = "double-setting",
         setting_type = "runtime-global",
-        default_value = 0,
+        default_value = 1,
         minimum_value = 0,
         order = "1-1"
     },
@@ -26,7 +26,7 @@ data:extend({
         name = "speed-for-2-player",
         type = "double-setting",
         setting_type = "runtime-global",
-        default_value = 0.5,
+        default_value = 1,
         minimum_value = 0,
         order = "1-1"
     },
@@ -34,7 +34,7 @@ data:extend({
         name = "speed-for-3-player",
         type = "double-setting",
         setting_type = "runtime-global",
-        default_value = 0.75,
+        default_value = 1,
         minimum_value = 0,
         order = "1-3"
     },
@@ -58,7 +58,7 @@ data:extend({
         name = "productivity-enabled",
         type = "bool-setting",
         setting_type = "runtime-global",
-        default_value = false,
+        default_value = true,
         order = "2"
     },
     {
